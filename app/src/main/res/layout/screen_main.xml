@@ -8,15 +8,33 @@
     tools:context=".presentation.view.screen.main.MainScreen">
 
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        android:layout_gravity="center">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_margin="8dp"
+            android:padding="8dp"
+            android:layout_width="200dp"
+            android:layout_height="?actionBarSize"
+            android:layout_gravity="center"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|center"
+            android:layout_margin="8dp"
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_setting" />
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/linear"
@@ -48,7 +66,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPagerMain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_person"
@@ -57,10 +75,8 @@
             android:layout_gravity="center|bottom"
             android:layout_margin="20dp"
             android:backgroundTint="@color/yellow"
+            android:contentDescription="@string/todo"
             android:src="@drawable/ic_add"
-            app:tint="@color/white"
-            android:contentDescription="@string/todo" />
+            app:tint="@color/white" />
     </FrameLayout>
-
-
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -11,7 +11,7 @@
         android:label="screen_splash"
         tools:layout="@layout/screen_splash" >
         <action
-            android:id="@+id/action_splashScreen_to_mainScreen"
+            android:id="@+id/action_splashScreen_to_mainScreen4"
             app:destination="@id/mainScreen" />
     </fragment>
     <fragment
