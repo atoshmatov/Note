@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="">
+    tools:context=".presentation.view.screen.main.pager.NotesPager">
 
     <LinearLayout
         android:id="@+id/noteLiner"
@@ -25,10 +25,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
+            android:textSize="14sp"
             app:closeIcon="@drawable/ic_close"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search"
+            app:queryHint="Search Notes"
             app:searchIcon="@drawable/ic_search"
             app:showDividers="middle" />
     </LinearLayout>
@@ -49,9 +50,9 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addNote"
-        android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="20dp"
         android:backgroundTint="@color/yellow"
         android:contentDescription="@string/todo"
@@ -60,5 +61,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/white"
+        tools:ignore="ImageContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
