@@ -7,7 +7,7 @@
     tools:context=".presentation.view.screen.main.pager.TaskPager">
 
     <LinearLayout
-        android:id="@+id/linear"
+        android:id="@+id/taskLiner"
         android:layout_width="match_parent"
         android:layout_height="44dp"
         android:layout_margin="8dp"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
+            android:id="@+id/searchViewTask"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
@@ -32,8 +32,21 @@
             app:showDividers="middle" />
     </LinearLayout>
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listTask"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:padding="4dp"
+        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskLiner"
+        app:spanCount="2"
+        tools:listitem="@layout/note_item" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_person"
+        android:id="@+id/addTask"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

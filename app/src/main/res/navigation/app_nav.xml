@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashScreen"
-        android:name="uz.gita.noteAppMobdev.presentation.view.screen.splash.SplashScreen"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.splash.SplashScreen"
         android:label="screen_splash"
         tools:layout="@layout/screen_splash" >
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainScreen"
-        android:name="uz.gita.noteAppMobdev.presentation.view.screen.main.MainScreen"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.MainScreen"
         android:label="screen_main"
         tools:layout="@layout/screen_main" >
         <action
@@ -30,12 +30,12 @@
     </fragment>
     <fragment
         android:id="@+id/notesPager"
-        android:name="uz.gita.noteAppMobdev.presentation.view.screen.main.pager.NotesPager"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.pager.NotesPager"
         android:label="pager_notes"
         tools:layout="@layout/pager_notes" />
     <fragment
         android:id="@+id/taskPager"
-        android:name="uz.gita.noteAppMobdev.presentation.view.screen.main.pager.TaskPager"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.pager.TaskPager"
         android:label="pager_task"
         tools:layout="@layout/pager_task" />
 </navigation>
