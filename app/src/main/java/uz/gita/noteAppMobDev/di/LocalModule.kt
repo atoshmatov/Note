@@ -7,9 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import uz.gita.noteAppMobDev.data.sourse.AppDatabase
-import uz.gita.noteAppMobDev.data.sourse.dao.NoteDao
-import uz.gita.noteAppMobDev.data.sourse.dao.TaskDao
+import uz.gita.noteAppMobDev.data.sourse.local.AppDatabase
+import uz.gita.noteAppMobDev.data.sourse.local.dao.NoteDao
+import uz.gita.noteAppMobDev.data.sourse.local.dao.TaskDao
 import javax.inject.Singleton
 
 

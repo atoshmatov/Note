@@ -3,4 +3,6 @@
     <string name="note">Notes</string>
     <string name="task">Tasks</string>
     <string name="todo">TODO</string>
+    <string name="title_empty">Nom bo\'sh bo\'lmasligi shart!</string>
+    <string name="description_empty">Izoh bo\'sh bo\'lmasligi shart!</string>
 </resources>
