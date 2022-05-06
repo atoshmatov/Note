@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.screen.main.pager.">
+    tools:context=".presentation.view.screen.main.pager.TaskPager">
 
     <LinearLayout
         android:id="@+id/taskLiner"
@@ -42,8 +42,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskLiner"
-        app:spanCount="2"
-        tools:listitem="@layout/note_item" />
+        app:spanCount="1"
+        tools:listitem="@layout/task_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addTask"
