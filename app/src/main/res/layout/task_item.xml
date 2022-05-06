@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/noteText" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/noteText"
@@ -31,18 +31,20 @@
         tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d" />
 
     <TextView
+        app:layout_constraintHorizontal_chainStyle="packed"
         android:id="@+id/noteData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textColor="#494747"
+        android:layout_marginEnd="20dp"
         app:drawableStartCompat="@drawable/ic_calendar"
         app:layout_constraintBottom_toBottomOf="@+id/taskCheck"
-        app:layout_constraintEnd_toEndOf="@+id/noteText"
         app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintEnd_toStartOf="@id/taskTime"
         app:layout_constraintStart_toStartOf="@+id/noteText"
         app:layout_constraintTop_toBottomOf="@id/noteText"
-        tools:text="    12:20" />
+        tools:text=" 20 december" />
 
     <TextView
         android:id="@+id/taskTime"
@@ -54,6 +56,6 @@
         app:layout_constraintEnd_toEndOf="@+id/noteText"
         app:layout_constraintStart_toEndOf="@+id/noteData"
         app:layout_constraintTop_toTopOf="@+id/noteData"
-        tools:text="    22:20" />
+        tools:text=" 22:20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

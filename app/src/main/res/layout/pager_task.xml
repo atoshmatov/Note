@@ -25,9 +25,10 @@
             android:layout_height="match_parent"
             android:focusable="true"
             app:closeIcon="@drawable/ic_close"
+            android:textSize="14sp"
             app:iconifiedByDefault="false"
             app:queryBackground="@android:color/transparent"
-            app:queryHint="Search"
+            app:queryHint="Search Tasks"
             app:searchIcon="@drawable/ic_search"
             app:showDividers="middle" />
     </LinearLayout>
@@ -37,12 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:padding="4dp"
-        app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskLiner"
-        app:spanCount="1"
         tools:listitem="@layout/task_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
