@@ -11,6 +11,4 @@ import uz.gita.noteAppMobDev.data.sourse.entity.TaskEntity
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getNoteDao(): NoteDao
     abstract fun getTaskDao(): TaskDao
-
-
 }
