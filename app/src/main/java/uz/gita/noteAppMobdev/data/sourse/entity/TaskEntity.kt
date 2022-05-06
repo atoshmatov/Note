@@ -1,4 +1,7 @@
 package uz.gita.noteAppMobdev.data.sourse.entity
 
-class TaskEntity {
-}
+import androidx.room.Entity
+
+//@Entity
+//class TaskEntity {
+//}

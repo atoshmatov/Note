@@ -5,5 +5,4 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.noteAppMobdev.R
 
 @AndroidEntryPoint
-class NotesPager : Fragment(R.layout.pager_notes) {
-}
+class NotesPager : Fragment(R.layout.pager_notes) {}

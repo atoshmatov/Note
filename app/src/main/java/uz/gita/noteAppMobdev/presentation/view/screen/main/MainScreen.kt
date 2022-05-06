@@ -21,14 +21,10 @@ class MainScreen : Fragment(R.layout.screen_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         viewPagerMain.adapter = mainAdapter
-        TabLayoutMediator(tabLayout,viewPagerMain){tab,position->
-            when(position){
-                0 ->{
-                    tab.text = "Notes"
-                }
-                else ->{
-                    tab.text = "Task"
-                }
+        TabLayoutMediator(tabLayout,viewPagerMain){ tab, position ->
+            when (position) {
+                0 -> tab.setIcon(R.drawable.ic_sticky)
+                else -> tab.setIcon(R.drawable.ic_check)
             }
         }.attach()
     }

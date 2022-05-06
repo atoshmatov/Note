@@ -115,4 +115,8 @@ dependencies {
     def room_version = "2.4.2"
     implementation("androidx.room:room-runtime:$room_version")
     kapt "androidx.room:room-compiler:2.4.2"
+
+
+    // editor note App
+    implementation 'jp.wasabeef:richeditor-android:2.0.0'
 }
