@@ -1,4 +1,10 @@
 package uz.gita.noteAppMobDev.presentation.viewmodel.main.impl
 
-class TaskViewModelImpl {
+import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import uz.gita.noteAppMobDev.presentation.viewmodel.main.TaskViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class TaskViewModelImpl @Inject constructor() : ViewModel(), TaskViewModel {
 }

@@ -13,6 +13,5 @@ interface AddNoteViewModel {
 
     //add new note
     fun addNewNote(noteData: NoteData)
-
     fun back()
 }

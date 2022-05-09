@@ -12,6 +12,7 @@
         android:textColor="@color/yellow"
         android:id="@+id/pageName"
         android:layout_width="wrap_content"
+        android:fontFamily="@font/advent_pro"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/tabLayout"
         app:layout_constraintEnd_toStartOf="@+id/tabLayout"

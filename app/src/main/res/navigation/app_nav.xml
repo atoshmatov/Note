@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_nav.xml"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/addNoteScreen2">
 
     <fragment
         android:id="@+id/splashScreen"
@@ -22,20 +22,20 @@
         android:label="screen_main"
         tools:layout="@layout/screen_main" >
         <action
-            android:id="@+id/action_mainScreen_to_notesPager"
-            app:destination="@id/notesPager" />
+            android:id="@+id/action_mainScreen_to_addNoteScreen2"
+            app:destination="@id/addNoteScreen2" />
         <action
-            android:id="@+id/action_mainScreen_to_taskPager"
-            app:destination="@id/taskPager" />
+            android:id="@+id/action_mainScreen_to_addTaskScreen"
+            app:destination="@id/addTaskScreen" />
     </fragment>
     <fragment
-        android:id="@+id/notesPager"
-        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.pager.NotesPager"
-        android:label="pager_notes"
-        tools:layout="@layout/pager_notes" />
+        android:id="@+id/addNoteScreen2"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.AddNoteScreen"
+        android:label="screen_addnote"
+        tools:layout="@layout/screen_addnote" />
     <fragment
-        android:id="@+id/taskPager"
-        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.pager.TaskPager"
-        android:label="pager_task"
-        tools:layout="@layout/pager_task" />
+        android:id="@+id/addTaskScreen"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.AddTaskScreen"
+        android:label="screen_addtask"
+        tools:layout="@layout/screen_addtask" />
 </navigation>

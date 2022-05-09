@@ -10,7 +10,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.noteAppMobDev.R
 import uz.gita.noteAppMobDev.databinding.ScreenMainBinding
-import uz.gita.noteAppMobDev.presentation.view.adapter.MainAdapter
+import uz.gita.noteAppMobDev.presentation.view.adapter.main.MainAdapter
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.MainViewModel
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.MainViewModelImpl
 

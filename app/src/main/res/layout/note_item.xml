@@ -13,23 +13,43 @@
         android:id="@+id/noteText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/noteTime"
+        android:fontFamily="@font/advent_pro"
+        android:lines="1"
+        android:maxLength="15"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/descriptionNote"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0"
         tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/descriptionNote"
+        android:layout_width="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_height="wrap_content"
+        android:maxLines="3"
+        android:ellipsize="end"
+        app:layout_constraintBottom_toTopOf="@+id/noteTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/noteText"
+        app:layout_constraintTop_toBottomOf="@+id/noteText"
+        tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d"/>
 
     <TextView
         android:id="@+id/noteTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/noteText"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/advent_pro"
+        android:textSize="14sp"
+        app:drawableStartCompat="@drawable/ic_time"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="12:20" />
+        app:layout_constraintTop_toBottomOf="@id/descriptionNote"
+        tools:text="    12:20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

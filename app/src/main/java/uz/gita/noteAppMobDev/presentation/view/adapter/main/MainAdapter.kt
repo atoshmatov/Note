@@ -1,4 +1,4 @@
-package uz.gita.noteAppMobDev.presentation.view.adapter
+package uz.gita.noteAppMobDev.presentation.view.adapter.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

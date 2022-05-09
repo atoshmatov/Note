@@ -9,11 +9,9 @@ import uz.gita.noteAppMobDev.domain.repository.NoteRepository
 import uz.gita.noteAppMobDev.domain.usecase.NoteUseCase
 import javax.inject.Inject
 
-class NoteUseCaseImpl @Inject constructor(private val noteRepository: NoteRepository) : NoteUseCase {
+class NoteUseCaseImpl
+@Inject constructor(
+    private val noteRepository: NoteRepository
+) : NoteUseCase {
 
-    override fun getNotes(): Flow<List<NoteData>> = flow {
-        noteRepository.getNotes().collect { notes -> emit(notes.map { it.toData() }) }
-    }
-
-    override suspend fun addNote(noteData: NoteData) = noteRepository.createNote(noteData.toEntity())
 }

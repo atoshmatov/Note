@@ -15,22 +15,30 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddNoteViewModelImpl @Inject constructor(private val useCase: AddNoteUseCase) : AddNoteViewModel, ViewModel() {
-    override val errorTitleLiveData: MutableLiveData<Int> = MutableLiveData()
-    override val errorDescriptionLiveData: MutableLiveData<Int> = MutableLiveData()
-    override val loadingLiveData: MutableLiveData<Boolean> = MutableLiveData()
-    override val successLiveData: MutableLiveData<Unit> = MutableLiveData()
-    override val backLiveData: MutableLiveData<Unit> = MutableLiveData()
+    override val errorTitleLiveData = MutableLiveData<Int>()
+    override val errorDescriptionLiveData = MutableLiveData<Int>()
+    override val loadingLiveData = MutableLiveData<Boolean>()
+    override val successLiveData = MutableLiveData<Unit>()
+    override val backLiveData = MutableLiveData<Unit>()
+
 
     override fun addNewNote(noteData: NoteData) {
         when {
-            noteData.title.trim().isEmpty() -> errorTitleLiveData.value = R.string.title_empty
-            noteData.description.trim().isEmpty() -> errorDescriptionLiveData.value = R.string.description_empty
+            noteData.title.trim().isEmpty() -> {
+                errorTitleLiveData.value = R.string.title_empty
+            }
+            noteData.description.trim().isEmpty() -> {
+                errorDescriptionLiveData.value = R.string.description_empty
+            }
             else -> {
                 viewModelScope.launch(Dispatchers.Main) {
                     withContext(Dispatchers.IO) { useCase.addNote(noteData) }
                 }
+                loadingLiveData.value = true
+                return
             }
         }
+        loadingLiveData.value = false
     }
 
     override fun back() {

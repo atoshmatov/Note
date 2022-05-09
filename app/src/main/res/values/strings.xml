@@ -3,6 +3,8 @@
     <string name="note">Notes</string>
     <string name="task">Tasks</string>
     <string name="todo">TODO</string>
-    <string name="title_empty">Nom bo\'sh bo\'lmasligi shart!</string>
-    <string name="description_empty">Izoh bo\'sh bo\'lmasligi shart!</string>
+    <string name="title_empty">Tittle Empty</string>
+    <string name="description_empty">You did not fill in the field</string>
+    <string name="tittle">Tittle</string>
+    <string name="loading">Loading....</string>
 </resources>

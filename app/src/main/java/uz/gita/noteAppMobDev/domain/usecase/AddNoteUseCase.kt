@@ -1,8 +1,8 @@
 package uz.gita.noteAppMobDev.domain.usecase
 
+import kotlinx.coroutines.flow.Flow
 import uz.gita.noteAppMobDev.data.common.models.NoteData
 
 interface AddNoteUseCase {
-
-    suspend fun addNote(noteData: NoteData)
+    fun addNote(noteData: NoteData): Flow<Result<Unit>>
 }

@@ -7,5 +7,8 @@ import uz.gita.noteAppMobDev.presentation.viewmodel.main.MainViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModelImpl @Inject constructor( private val useCase: MainUseCase) : ViewModel(), MainViewModel {
+class MainViewModelImpl
+@Inject constructor(
+    private val useCase: MainUseCase
+) : ViewModel(), MainViewModel {
 }

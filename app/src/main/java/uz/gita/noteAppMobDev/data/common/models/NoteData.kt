@@ -9,5 +9,4 @@ data class NoteData(
     val time: String
 )
 
-
 fun NoteData.toEntity() = NoteEntity(title = title, description = description, time = time)
