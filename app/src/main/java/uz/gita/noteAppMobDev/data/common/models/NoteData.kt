@@ -6,7 +6,7 @@ data class NoteData(
     val id: Long = 0,
     val title: String,
     val description: String,
-    val time: String
+    val time: Long = 0
 )
 
 fun NoteData.toEntity() = NoteEntity(title = title, description = description, time = time)

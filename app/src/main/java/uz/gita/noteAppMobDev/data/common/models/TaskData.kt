@@ -5,7 +5,7 @@ import uz.gita.noteAppMobDev.data.sourse.local.entity.TaskEntity
 data class TaskData(
     val id: Long = 0,
     val title: String,
-    val time: String,
+    val time: Long = 0,
     val selected: Boolean = false
 )
 

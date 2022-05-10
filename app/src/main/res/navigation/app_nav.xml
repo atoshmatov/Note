@@ -27,6 +27,12 @@
         <action
             android:id="@+id/action_mainScreen_to_addTaskScreen"
             app:destination="@id/addTaskScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_updateNoteScreen"
+            app:destination="@id/updateNoteScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_updateTaskScreen"
+            app:destination="@id/updateTaskScreen" />
     </fragment>
     <fragment
         android:id="@+id/addNoteScreen2"
@@ -38,4 +44,14 @@
         android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.AddTaskScreen"
         android:label="screen_addtask"
         tools:layout="@layout/screen_addtask" />
+    <fragment
+        android:id="@+id/updateNoteScreen"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.UpdateNoteScreen"
+        android:label="screen_updatenotes"
+        tools:layout="@layout/screen_updatenotes" />
+    <fragment
+        android:id="@+id/updateTaskScreen"
+        android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.UpdateTaskScreen"
+        android:label="screen_updatetasks"
+        tools:layout="@layout/screen_updatetasks" />
 </navigation>
