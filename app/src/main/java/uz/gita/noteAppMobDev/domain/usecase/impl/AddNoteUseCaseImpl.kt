@@ -16,5 +16,4 @@ class AddNoteUseCaseImpl
     override fun addNote(noteData: NoteData) = flow<Result<Unit>> {
         emit(Result.success(noteRepository.addNote(noteData.toEntity())))
     }.flowOn(Dispatchers.IO)
-
 }

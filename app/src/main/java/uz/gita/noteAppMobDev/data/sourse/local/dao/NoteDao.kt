@@ -1,12 +1,17 @@
 package uz.gita.noteAppMobDev.data.sourse.local.dao
 
 import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 
 @Dao
-interface NoteDao : BaseDao<NoteEntity> {
+interface NoteDao {
 
-    @Query("SELECT * FROM NoteEntity")
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(noteEntity: NoteEntity)
+
+    @Query("SELECT * FROM NoteEntity ORDER BY time DESC")
     fun getNotes(): List<NoteEntity>
 }

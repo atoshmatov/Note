@@ -8,17 +8,18 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.gita.noteAppMobDev.R
 import uz.gita.noteAppMobDev.data.common.models.NoteData
+import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 import uz.gita.noteAppMobDev.databinding.NoteItemBinding
 
-class AddNoteAdapter : ListAdapter<NoteData, AddNoteAdapter.ViewHolder>(NoteDataDiffUtils) {
+class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDataDiffUtils) {
 
-    private var onItemClickListener: ((NoteData) -> Unit)? = null
+    private var onItemClickListener: ((NoteEntity) -> Unit)? = null
 
-    object NoteDataDiffUtils : DiffUtil.ItemCallback<NoteData>() {
-        override fun areItemsTheSame(oldItem: NoteData, newItem: NoteData): Boolean =
+    object NoteDataDiffUtils : DiffUtil.ItemCallback<NoteEntity>() {
+        override fun areItemsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: NoteData, newItem: NoteData): Boolean =
+        override fun areContentsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
             oldItem == newItem
 
     }
@@ -32,10 +33,10 @@ class AddNoteAdapter : ListAdapter<NoteData, AddNoteAdapter.ViewHolder>(NoteData
             }
         }
 
-        fun bind(): NoteData = with(binding) {
+        fun bind(): NoteEntity = with(binding) {
             getItem(absoluteAdapterPosition).apply {
                 noteText.text = title
-                noteTime.text = time
+                noteTime.text = time.toString()
                 descriptionNote.text = Html.fromHtml(description)
             }
         }
@@ -54,7 +55,7 @@ class AddNoteAdapter : ListAdapter<NoteData, AddNoteAdapter.ViewHolder>(NoteData
         holder.bind()
     }
 
-    fun setOnItemClickListener(block: (NoteData) -> Unit) {
+    fun setOnItemClickListener(block: (NoteEntity) -> Unit) {
         onItemClickListener = block
     }
 }

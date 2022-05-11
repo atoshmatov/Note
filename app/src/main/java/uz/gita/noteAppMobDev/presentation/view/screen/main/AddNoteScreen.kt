@@ -1,9 +1,11 @@
 package uz.gita.noteAppMobDev.presentation.view.screen.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import jp.wasabeef.richeditor.RichEditor
@@ -24,10 +26,12 @@ class AddNoteScreen : Fragment(R.layout.screen_addnote) {
             viewModel.addNewNote(
                 NoteData(
                     title = titleAdd.text.toString(),
-                    description = editorNote.toString(),
-                    time = 1220,
+                    description = editorNote.html,
+                    time = 12L,
                 )
             )
+            Log.d("addNote", "${titleAdd.text.toString()} ${editorNote.toString()}")
+            findNavController().popBackStack()
         }
     }
 }

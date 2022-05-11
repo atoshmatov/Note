@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
@@ -18,9 +19,10 @@ import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.MainViewModelImpl
 class MainScreen : Fragment(R.layout.screen_main) {
     private val binding by viewBinding(ScreenMainBinding::bind)
     private val viewModel: MainViewModel by viewModels<MainViewModelImpl>()
-    private val mainAdapter by lazy { MainAdapter(childFragmentManager, lifecycle) }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        val mainAdapter = MainAdapter(childFragmentManager, lifecycle)
         viewPagerMain.adapter = mainAdapter
         viewPagerMain.registerOnPageChangeCallback(object  : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -28,7 +30,7 @@ class MainScreen : Fragment(R.layout.screen_main) {
                 else binding.pageName.setText(R.string.task)
             }
         })
-        TabLayoutMediator(tabLayout,viewPagerMain){ tab, position ->
+        TabLayoutMediator(tabLayout, viewPagerMain) { tab, position ->
             when (position) {
                 0 -> {
                     tab.setIcon(R.drawable.ic_sticky)
@@ -38,6 +40,8 @@ class MainScreen : Fragment(R.layout.screen_main) {
                 }
             }
         }.attach()
-
+        add.setOnClickListener {
+            findNavController().navigate(R.id.action_mainScreen_to_addNoteScreen)
+        }
     }
 }
