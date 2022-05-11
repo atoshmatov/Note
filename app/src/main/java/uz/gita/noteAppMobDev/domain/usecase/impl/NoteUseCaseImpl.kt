@@ -13,6 +13,9 @@ class NoteUseCaseImpl
     private val noteRepository: NoteRepository
 ) : NoteUseCase {
     override fun getNotes() = flow<Result<List<NoteEntity>>> {
-        emit(Result.success(noteRepository.getNotes()))
+        emit(
+            Result.success(
+                noteRepository.getNotes().sortedWith { p0, p1 -> (p1.time - p0.time).toInt() })
+        )
     }.flowOn(Dispatchers.IO)
 }

@@ -7,7 +7,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.view.screen.main.pager.NotesPager">
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:id="@+id/noteLiner"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -33,7 +33,7 @@
             app:queryHint="Search Notes"
             app:searchIcon="@drawable/ic_search"
             app:showDividers="middle" />
-    </LinearLayout>
+    </LinearLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listNote"
@@ -44,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteLiner"
+        app:layout_constraintTop_toTopOf="parent"
         app:spanCount="2"
         tools:listitem="@layout/note_item" />
 

@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.screen.main.pager.TaskPager">
 
+<!--
     <LinearLayout
         android:id="@+id/taskLiner"
         android:layout_width="match_parent"
@@ -33,6 +34,7 @@
             app:searchIcon="@drawable/ic_search"
             app:showDividers="middle" />
     </LinearLayout>
+-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listTask"
@@ -42,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskLiner"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/task_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

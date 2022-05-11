@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.launch
 import uz.gita.noteAppMobDev.data.common.models.NoteData
 import uz.gita.noteAppMobDev.domain.usecase.AddNoteUseCase
@@ -24,9 +28,13 @@ class AddNoteViewModelImpl
 
 
     override fun addNewNote(noteData: NoteData) {
-        viewModelScope.launch(Dispatchers.IO) {
-            addNoteUseCase.addNote(noteData)
-        }
+        /*viewModelScope.launch(Dispatchers.IO) {
+            addNoteUseCase.addNote(noteData).collect()
+        }*/
+        addNoteUseCase.addNote(noteData)
+            .flowOn(Dispatchers.IO)
+            .launchIn(viewModelScope)
+
         loadingLiveData.value = true
         return
     }

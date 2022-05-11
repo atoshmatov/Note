@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.gita.noteAppMobDev.R
-import uz.gita.noteAppMobDev.data.common.models.NoteData
 import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 import uz.gita.noteAppMobDev.databinding.NoteItemBinding
+import java.text.SimpleDateFormat
 
 class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDataDiffUtils) {
 
@@ -26,17 +26,19 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
 
     inner class ViewHolder(private val binding: NoteItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+        private val simpleDateFormat: SimpleDateFormat = SimpleDateFormat("  hh : mm")
 
         init {
-            itemView.setOnClickListener {
-                onItemClickListener!!.invoke(getItem(absoluteAdapterPosition))
-            }
+//            itemView.setOnClickListener {
+//                onItemClickListener!!.invoke(getItem(absoluteAdapterPosition))
+//            }
         }
 
         fun bind(): NoteEntity = with(binding) {
             getItem(absoluteAdapterPosition).apply {
+                val dateTime = simpleDateFormat.format(time)
                 noteText.text = title
-                noteTime.text = time.toString()
+                noteTime.text = dateTime
                 descriptionNote.text = Html.fromHtml(description)
             }
         }
