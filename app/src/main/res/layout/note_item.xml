@@ -29,7 +29,6 @@
         android:layout_width="0dp"
         android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
-        android:maxLines="3"
         android:ellipsize="end"
         app:layout_constraintBottom_toTopOf="@+id/noteTime"
         app:layout_constraintEnd_toEndOf="parent"

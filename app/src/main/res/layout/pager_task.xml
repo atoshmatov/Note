@@ -6,41 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".presentation.view.screen.main.pager.TaskPager">
 
-<!--
-    <LinearLayout
-        android:id="@+id/taskLiner"
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:layout_margin="8dp"
-        android:background="@drawable/search_style"
-        android:backgroundTint="#F7F5FA"
-        android:elevation="8dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.SearchView
-            android:fontFamily="@font/advent_pro"
-            android:id="@+id/searchViewTask"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:focusable="true"
-            app:closeIcon="@drawable/ic_close"
-            android:textSize="14sp"
-            app:iconifiedByDefault="false"
-            app:queryBackground="@android:color/transparent"
-            app:queryHint="Search Tasks"
-            app:searchIcon="@drawable/ic_search"
-            app:showDividers="middle" />
-    </LinearLayout>
--->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listTask"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

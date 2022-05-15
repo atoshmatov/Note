@@ -1,7 +1,6 @@
 package uz.gita.noteAppMobDev.presentation.view.screen.main.pager
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -27,13 +26,15 @@ class NotesPager : Fragment(R.layout.pager_notes) {
         listNote.adapter = noteAdapter
         listNote.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
+        noteAdapter.setOnItemClickListener {
+            Toast.makeText(requireContext(), "${it.id}", Toast.LENGTH_SHORT).show()
+        }
         viewModel.notesLiveData.observe(viewLifecycleOwner, notesObserver)
         viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
         viewModel.loadNotes()
     }
 
     private val notesObserver = Observer<List<NoteEntity>> {
-        Log.d("notesObserver", "$it")
         noteAdapter.submitList(it)
     }
     private val errorObserver = Observer<String> {

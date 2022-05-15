@@ -3,6 +3,8 @@ package uz.gita.noteAppMobDev.domain.usecase.impl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import uz.gita.noteAppMobDev.data.common.models.NoteData
+import uz.gita.noteAppMobDev.data.common.models.toEntity
 import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 import uz.gita.noteAppMobDev.domain.repository.NoteRepository
 import uz.gita.noteAppMobDev.domain.usecase.NoteUseCase
@@ -17,5 +19,10 @@ class NoteUseCaseImpl
             Result.success(
                 noteRepository.getNotes().sortedWith { p0, p1 -> (p1.time - p0.time).toInt() })
         )
+    }.flowOn(Dispatchers.IO)
+
+    override fun delete(noteData: NoteData) = flow<Result<Unit>> {
+        noteRepository.deleteNote(noteData.toEntity())
+        emit(Result.success(Unit))
     }.flowOn(Dispatchers.IO)
 }

@@ -1,6 +1,5 @@
 package uz.gita.noteAppMobDev.presentation.viewmodel.main.impl
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -25,13 +24,9 @@ class NoteViewModelImpl
         useCaseNote.getNotes().onEach {
             it.onSuccess { note ->
                 notesLiveData.value = note
-                Log.d("onSuccess", "$note")
-            }
-            it.onFailure {
+            }.onFailure {
                 errorLiveData.value = "Error"
-                Log.d("onSuccess", "$it")
             }
         }.launchIn(viewModelScope)
     }
-
 }

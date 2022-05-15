@@ -87,4 +87,8 @@ dependencies {
 
     //ViewModelProviders
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+
+    //editor
+    api "org.wordpress:aztec:trunk-{commit_sha1}"
+    api "org.wordpress:aztec:v1.5.4"
 }

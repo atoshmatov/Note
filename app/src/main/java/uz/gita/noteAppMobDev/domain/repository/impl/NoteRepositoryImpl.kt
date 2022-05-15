@@ -14,5 +14,13 @@ class NoteRepositoryImpl
         noteDao.insert(noteEntity)
     }
 
+    override suspend fun deleteNote(noteEntity: NoteEntity) {
+        noteDao.delete(noteEntity)
+    }
+
+    override suspend fun updateNote(noteEntity: NoteEntity) {
+        noteDao.upData(noteEntity)
+    }
+
     override suspend fun getNotes(): List<NoteEntity> = noteDao.getNotes()
 }

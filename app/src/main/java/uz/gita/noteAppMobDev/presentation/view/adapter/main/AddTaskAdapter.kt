@@ -1,31 +1,30 @@
 package uz.gita.noteAppMobDev.presentation.view.adapter.main
 
 import android.annotation.SuppressLint
-import android.text.Html
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import uz.gita.noteAppMobDev.R
-import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
-import uz.gita.noteAppMobDev.databinding.NoteItemBinding
+import uz.gita.noteAppMobDev.data.sourse.local.entity.TaskEntity
+import uz.gita.noteAppMobDev.databinding.TaskItemBinding
 import java.text.SimpleDateFormat
 
-class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDataDiffUtils) {
+class AddTaskAdapter : ListAdapter<TaskEntity, AddTaskAdapter.ViewHolder>(TaskDataDiffUtils) {
 
-    private var onItemClickListener: ((NoteEntity) -> Unit)? = null
+    private var onItemClickListener: ((TaskEntity) -> Unit)? = null
 
-    object NoteDataDiffUtils : DiffUtil.ItemCallback<NoteEntity>() {
-        override fun areItemsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
+    object TaskDataDiffUtils : DiffUtil.ItemCallback<TaskEntity>() {
+        override fun areItemsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
             oldItem == newItem
 
-        override fun areContentsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
+        override fun areContentsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
             oldItem == newItem
 
     }
 
-    inner class ViewHolder(private val binding: NoteItemBinding) :
+    inner class ViewHolder(private val binding: TaskItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SimpleDateFormat")
         private val simpleDateFormat: SimpleDateFormat = SimpleDateFormat("  HH : mm")
@@ -36,22 +35,21 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
             }
         }
 
-        fun bind(): NoteEntity = with(binding) {
+        fun bind(): TaskEntity = with(binding) {
             getItem(absoluteAdapterPosition).apply {
                 val dateTime = simpleDateFormat.format(time)
-                noteText.text = title
-                noteTime.text = dateTime
-                descriptionNote.text = Html.fromHtml(description)
+                taskText.text = title
+                taskTime.text = dateTime
             }
         }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
-        NoteItemBinding.bind(
+        TaskItemBinding.bind(
             LayoutInflater
                 .from(parent.context)
-                .inflate(R.layout.note_item, parent, false)
+                .inflate(R.layout.task_item, parent, false)
         )
     )
 
@@ -59,7 +57,7 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
         holder.bind()
     }
 
-    fun setOnItemClickListener(block: (NoteEntity) -> Unit) {
+    fun setOnItemClickListener(block: (TaskEntity) -> Unit) {
         onItemClickListener = block
     }
 }

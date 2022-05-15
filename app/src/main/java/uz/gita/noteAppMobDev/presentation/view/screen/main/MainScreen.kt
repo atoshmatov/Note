@@ -26,8 +26,17 @@ class MainScreen : Fragment(R.layout.screen_main) {
         viewPagerMain.adapter = mainAdapter
         viewPagerMain.registerOnPageChangeCallback(object  : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
-                if (position == 0) binding.pageName.setText(R.string.note)
-                else binding.pageName.setText(R.string.task)
+                if (position == 0) {
+                    binding.pageName.setText(R.string.note)
+                    add.setOnClickListener {
+                        findNavController().navigate(R.id.action_mainScreen_to_addNoteScreen)
+                    }
+                } else {
+                    binding.pageName.setText(R.string.task)
+                    add.setOnClickListener {
+                        findNavController().navigate(R.id.action_mainScreen_to_addTaskScreen)
+                    }
+                }
             }
         })
         TabLayoutMediator(tabLayout, viewPagerMain) { tab, position ->

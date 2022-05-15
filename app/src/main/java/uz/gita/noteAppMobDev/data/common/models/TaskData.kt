@@ -9,4 +9,4 @@ data class TaskData(
     val selected: Boolean = false
 )
 
-fun TaskData.toEntity() = TaskEntity(title = title, time = time)
+fun TaskData.toEntity() = TaskEntity(id = id, title = title, time = time)

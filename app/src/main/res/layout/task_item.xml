@@ -4,35 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginVertical="4dp"
+    android:layout_marginHorizontal="8dp"
     android:background="@drawable/item_style"
     android:elevation="6dp"
-    android:padding="6dp">
+    android:padding="4dp">
 
     <CheckBox
         android:id="@+id/taskCheck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:checked="false"
+        app:layout_constraintBottom_toBottomOf="@+id/taskText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/noteText" />
+        app:layout_constraintTop_toTopOf="@+id/taskText" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/noteText"
-        android:layout_width="wrap_content"
+        android:id="@+id/taskText"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
         android:fontFamily="@font/advent_pro"
+        android:maxLines="1"
         android:paddingVertical="10dp"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@+id/taskCheck"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d" />
+        tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbxsxsxsxsxsxsxxsxsxsxsvh,,d" />
 
     <TextView
+        android:visibility="gone"
         app:layout_constraintHorizontal_chainStyle="packed"
-        android:id="@+id/noteData"
+        android:id="@+id/taskData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -42,8 +48,8 @@
         app:layout_constraintBottom_toBottomOf="@+id/taskCheck"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintEnd_toStartOf="@id/taskTime"
-        app:layout_constraintStart_toStartOf="@+id/noteText"
-        app:layout_constraintTop_toBottomOf="@id/noteText"
+        app:layout_constraintStart_toStartOf="@+id/taskText"
+        app:layout_constraintTop_toBottomOf="@id/taskText"
         tools:text=" 20 december" />
 
     <TextView
@@ -52,10 +58,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/advent_pro"
         app:drawableStartCompat="@drawable/ic_time"
-        app:layout_constraintBottom_toBottomOf="@+id/noteData"
-        app:layout_constraintEnd_toEndOf="@+id/noteText"
-        app:layout_constraintStart_toEndOf="@+id/noteData"
-        app:layout_constraintTop_toTopOf="@+id/noteData"
+        app:layout_constraintBottom_toBottomOf="@+id/taskText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toEndOf="@+id/taskText"
+        app:layout_constraintTop_toTopOf="@+id/taskText"
         tools:text=" 22:20" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
