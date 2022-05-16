@@ -11,8 +11,10 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.noteAppMobDev.R
 import uz.gita.noteAppMobDev.data.sourse.local.entity.TaskEntity
+import uz.gita.noteAppMobDev.data.sourse.local.entity.toTaskData
 import uz.gita.noteAppMobDev.databinding.PagerTaskBinding
 import uz.gita.noteAppMobDev.presentation.view.adapter.main.AddTaskAdapter
+import uz.gita.noteAppMobDev.presentation.view.dialog.TaskDialog
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.TaskViewModel
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.TaskViewModelImpl
 
@@ -27,9 +29,23 @@ class TaskPager : Fragment(R.layout.pager_task) {
         listTask.layoutManager = LinearLayoutManager(requireContext())
 
         taskAdapter.setOnItemClickListener {
-            Toast.makeText(requireContext(), "${it.id}", Toast.LENGTH_SHORT).show()
+            if (it.selected == 0) {
+                viewModel.addChecked(it.id)
+            } else {
+                viewModel.deleteChecked(it.id)
+            }
+            viewModel.loadTask()
         }
-
+        taskAdapter.setOnItemClickDialogListener { task ->
+            val dialog = TaskDialog(task.toTaskData())
+            dialog.setClickDeleteButtonListener {
+                viewModel.deleteTask(it)
+            }
+            dialog.setClickEditButtonListener {
+                //TODO
+            }
+            dialog.show(childFragmentManager, "Note")
+        }
         viewModel.tasksLiveData.observe(viewLifecycleOwner, tasksObserver)
         viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
         viewModel.loadTask()

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import uz.gita.noteAppMobDev.data.common.models.TaskData
 import uz.gita.noteAppMobDev.data.sourse.local.entity.TaskEntity
 import uz.gita.noteAppMobDev.domain.usecase.TaskUseCase
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.TaskViewModel
@@ -18,6 +19,7 @@ class TaskViewModelImpl
 ) : ViewModel(), TaskViewModel {
     override val tasksLiveData = MutableLiveData<List<TaskEntity>>()
     override val errorLiveData = MutableLiveData<String>()
+    override val successLiveData = MutableLiveData<String>()
 
     override fun loadTask() {
         taskUseCase.getTasks().onEach {
@@ -25,6 +27,31 @@ class TaskViewModelImpl
                 tasksLiveData.value = task
             }.onFailure {
                 errorLiveData.value = "Error"
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    override fun addChecked(id: Long) {
+        taskUseCase.addCheck(id).onEach {
+            it.onSuccess {
+                loadTask()
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    override fun deleteChecked(id: Long) {
+        taskUseCase.deleteCheck(id).onEach {
+            it.onSuccess {
+                loadTask()
+            }
+        }.launchIn(viewModelScope)
+    }
+
+    override fun deleteTask(taskData: TaskData) {
+        taskUseCase.deleteTask(taskData).onEach {
+            it.onSuccess {
+                successLiveData.value = "Delete"
+                loadTask()
             }
         }.launchIn(viewModelScope)
     }

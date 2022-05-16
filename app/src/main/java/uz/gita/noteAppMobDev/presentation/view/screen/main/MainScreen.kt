@@ -12,6 +12,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.noteAppMobDev.R
 import uz.gita.noteAppMobDev.databinding.ScreenMainBinding
 import uz.gita.noteAppMobDev.presentation.view.adapter.main.MainAdapter
+import uz.gita.noteAppMobDev.presentation.view.screen.main.pager.NotesPager
+import uz.gita.noteAppMobDev.presentation.view.screen.main.pager.TaskPager
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.MainViewModel
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.MainViewModelImpl
 
@@ -19,12 +21,15 @@ import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.MainViewModelImpl
 class MainScreen : Fragment(R.layout.screen_main) {
     private val binding by viewBinding(ScreenMainBinding::bind)
     private val viewModel: MainViewModel by viewModels<MainViewModelImpl>()
+    private val notesPager: NotesPager? = null
+    private val taskPager: TaskPager? = null
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+
         val mainAdapter = MainAdapter(childFragmentManager, lifecycle)
         viewPagerMain.adapter = mainAdapter
-        viewPagerMain.registerOnPageChangeCallback(object  : ViewPager2.OnPageChangeCallback() {
+        viewPagerMain.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 if (position == 0) {
                     binding.pageName.setText(R.string.note)
@@ -39,6 +44,9 @@ class MainScreen : Fragment(R.layout.screen_main) {
                 }
             }
         })
+        notesPager?.setSendNoteDataUpdate {
+            findNavController().navigate(MainScreenDirections.actionMainScreenToUpdateNoteScreen(it))
+        }
         TabLayoutMediator(tabLayout, viewPagerMain) { tab, position ->
             when (position) {
                 0 -> {
@@ -49,8 +57,5 @@ class MainScreen : Fragment(R.layout.screen_main) {
                 }
             }
         }.attach()
-        add.setOnClickListener {
-            findNavController().navigate(R.id.action_mainScreen_to_addNoteScreen)
-        }
     }
 }

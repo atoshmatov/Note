@@ -48,7 +48,11 @@
         android:id="@+id/updateNoteScreen"
         android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.UpdateNoteScreen"
         android:label="screen_updatenotes"
-        tools:layout="@layout/screen_updatenotes" />
+        tools:layout="@layout/screen_updatenotes" >
+        <argument
+            android:name="note"
+            app:argType="uz.gita.noteAppMobDev.data.common.models.NoteData" />
+    </fragment>
     <fragment
         android:id="@+id/updateTaskScreen"
         android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.UpdateTaskScreen"

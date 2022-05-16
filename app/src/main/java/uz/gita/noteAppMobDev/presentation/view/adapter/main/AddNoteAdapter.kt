@@ -18,11 +18,10 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
 
     object NoteDataDiffUtils : DiffUtil.ItemCallback<NoteEntity>() {
         override fun areItemsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(oldItem: NoteEntity, newItem: NoteEntity): Boolean =
             oldItem == newItem
-
     }
 
     inner class ViewHolder(private val binding: NoteItemBinding) :

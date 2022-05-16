@@ -53,7 +53,7 @@ class AddNoteScreen : Fragment(uz.gita.noteAppMobDev.R.layout.screen_addnote) {
             viewModel.addNewNote(
                 NoteData(
                     title = titleAdd.text.toString(),
-                    description = editorNote.toFormattedHtml(),
+                    description = editorNote.toPlainHtml(),
                     time = System.currentTimeMillis(),
                 )
             )

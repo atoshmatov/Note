@@ -7,4 +7,10 @@
     <string name="description_empty">You did not fill in the field</string>
     <string name="tittle">Tittle</string>
     <string name="loading">Loading....</string>
+    <string name="update_notes">Update Notes</string>
+    <string name="update_tasks">Update Tasks</string>
+    <string name="tasks">tasks</string>
+    <string name="notes">notes</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

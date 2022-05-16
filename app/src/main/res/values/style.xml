@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="DialogStyle" parent="Base.Theme.AppCompat.Dialog">
+        <item name="android:windowMinWidthMajor">30%</item>
+        <item name="android:windowMinWidthMinor">30%</item>
+        <item name="android:radius">10dp</item>
+        <item name="backgroundTint">#E1DADA</item>
+    </style>
+</resources>

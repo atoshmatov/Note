@@ -9,7 +9,6 @@ class NoteRepositoryImpl
 @Inject constructor(
     private val noteDao: NoteDao
 ) : NoteRepository {
-
     override suspend fun addNote(noteEntity: NoteEntity) {
         noteDao.insert(noteEntity)
     }
@@ -19,7 +18,7 @@ class NoteRepositoryImpl
     }
 
     override suspend fun updateNote(noteEntity: NoteEntity) {
-        noteDao.upData(noteEntity)
+        noteDao.upDate(noteEntity)
     }
 
     override suspend fun getNotes(): List<NoteEntity> = noteDao.getNotes()

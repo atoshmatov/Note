@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
-    android:elevation="6dp"
+    android:elevation="2dp"
     android:background="@drawable/item_style"
     android:layout_margin="8dp">
 
@@ -26,10 +26,9 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/descriptionNote"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
         app:layout_constraintBottom_toTopOf="@+id/noteTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/noteText"

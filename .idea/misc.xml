@@ -12,6 +12,7 @@
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_close.xml" value="0.2265" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_more.xml" value="0.1775" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_palette.xml" value="0.248" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_pencil.xml" value="0.206" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_save.xml" value="0.1775" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_search.xml" value="0.2265" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_setting.xml" value="0.248" />
@@ -23,9 +24,12 @@
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/ic_type_strikethrough.xml" value="0.248" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/item_style.xml" value="0.248" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/search_style.xml" value="0.2265" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/drawable/strike.xml" value="0.206" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/font/actor.xml" value="0.3848958333333333" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/activity_main.xml" value="0.228125" />
-        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/note_item.xml" value="0.4" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/delte_dialog_item.xml" value="0.2421875" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/note_dialog_item.xml" value="0.2421875" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/note_item.xml" value="0.2421875" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/pager_notes.xml" value="0.264" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/pager_task.xml" value="0.264" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/screen_addnote.xml" value="0.2421875" />
@@ -35,7 +39,7 @@
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/screen_updatenote.xml" value="0.2421875" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/screen_updatenotes.xml" value="0.2421875" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/screen_updatetasks.xml" value="0.2421875" />
-        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/task_item.xml" value="0.264" />
+        <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/layout/task_item.xml" value="0.2421875" />
         <entry key="..\:/Play_Market/newPlayMerket/noteApp/app/src/main/res/menu/bottom_mune.xml" value="0.2421875" />
         <entry key="..\:/Users/Rustam/AndroidStudioProjects/Note/app/src/main/res/layout/pager_notes.xml" value="0.2625" />
       </map>

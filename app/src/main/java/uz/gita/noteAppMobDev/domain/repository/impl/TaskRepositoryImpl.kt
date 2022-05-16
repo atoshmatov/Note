@@ -13,12 +13,21 @@ class TaskRepositoryImpl
         taskDao.insert(taskEntity)
     }
 
-    override suspend fun getTasks(): List<TaskEntity> = taskDao.getTasks()
     override suspend fun deleteTask(taskEntity: TaskEntity) {
         taskDao.delete(taskEntity)
     }
 
     override suspend fun update(taskEntity: TaskEntity) {
-       taskDao.upData(taskEntity)
+        taskDao.upData(taskEntity)
     }
+
+    override suspend fun checkAdd(id: Long) {
+        taskDao.addCheck(id)
+    }
+
+    override suspend fun checkDelete(id: Long) {
+        taskDao.deleteCheck(id)
+    }
+
+    override suspend fun getTasks(): List<TaskEntity> = taskDao.getTasks()
 }

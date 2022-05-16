@@ -1,9 +1,7 @@
 package uz.gita.noteAppMobDev.data.sourse.local.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
+import androidx.room.*
+import kotlinx.coroutines.selects.select
 
 interface BaseDao<T> {
 
@@ -11,8 +9,8 @@ interface BaseDao<T> {
     fun insert(t: T)
 
     @Update
-    fun upData(t: T)
+    fun upDate(t: T)
 
     @Delete
-    fun delete(t:T)
+    fun delete(t: T)
 }

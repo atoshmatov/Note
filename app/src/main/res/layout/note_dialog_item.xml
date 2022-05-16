@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:backgroundTint="#E1DADA"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/anonymous_pro"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="@string/edit"
+            android:textColor="#6BB2EA"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_pencil"
+            app:drawableTint="#6BB2EA" />
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/anonymous_pro"
+            android:gravity="center"
+            android:paddingHorizontal="20dp"
+            android:text="@string/delete"
+            android:textColor="#E65151"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_trash3"
+            app:drawableTint="#E65151" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</com.google.android.material.card.MaterialCardView>

@@ -14,10 +14,11 @@ import java.text.SimpleDateFormat
 class AddTaskAdapter : ListAdapter<TaskEntity, AddTaskAdapter.ViewHolder>(TaskDataDiffUtils) {
 
     private var onItemClickListener: ((TaskEntity) -> Unit)? = null
+    private var onItemClickDialogListener: ((TaskEntity) -> Unit)? = null
 
     object TaskDataDiffUtils : DiffUtil.ItemCallback<TaskEntity>() {
         override fun areItemsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
-            oldItem == newItem
+            oldItem.id == newItem.id
 
         override fun areContentsTheSame(oldItem: TaskEntity, newItem: TaskEntity): Boolean =
             oldItem == newItem
@@ -30,16 +31,29 @@ class AddTaskAdapter : ListAdapter<TaskEntity, AddTaskAdapter.ViewHolder>(TaskDa
         private val simpleDateFormat: SimpleDateFormat = SimpleDateFormat("  HH : mm")
 
         init {
-            itemView.setOnClickListener {
+            binding.taskCheck.setOnClickListener {
                 onItemClickListener!!.invoke(getItem(absoluteAdapterPosition))
+            }
+            binding.root.setOnClickListener {
+                onItemClickDialogListener!!.invoke(getItem(absoluteAdapterPosition))
             }
         }
 
+        @SuppressLint("ResourceType")
         fun bind(): TaskEntity = with(binding) {
             getItem(absoluteAdapterPosition).apply {
                 val dateTime = simpleDateFormat.format(time)
-                taskText.text = title
-                taskTime.text = dateTime
+                if (selected == 0) {
+                    taskText.text = title
+                    taskCheck.isChecked = false
+                    taskTime.text = dateTime
+                    taskText.setBackgroundResource(0)
+                } else {
+                    taskText.text = title
+                    taskTime.text = dateTime
+                    taskText.setBackgroundResource(R.drawable.strike)
+                    taskCheck.isChecked = true
+                }
             }
         }
 
@@ -59,5 +73,9 @@ class AddTaskAdapter : ListAdapter<TaskEntity, AddTaskAdapter.ViewHolder>(TaskDa
 
     fun setOnItemClickListener(block: (TaskEntity) -> Unit) {
         onItemClickListener = block
+    }
+
+    fun setOnItemClickDialogListener(block: (TaskEntity) -> Unit) {
+        onItemClickDialogListener = block
     }
 }

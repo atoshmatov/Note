@@ -6,7 +6,7 @@ data class TaskData(
     val id: Long = 0,
     val title: String,
     val time: Long = 0,
-    val selected: Boolean = false
+    val selected: Int = 0
 )
 
-fun TaskData.toEntity() = TaskEntity(id = id, title = title, time = time)
+fun TaskData.toEntity() = TaskEntity(id = id, title = title, time = time, selected = selected)
