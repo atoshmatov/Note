@@ -41,12 +41,5 @@ class NoteViewModelImpl
         }.launchIn(viewModelScope)
     }
 
-    override fun updateNote(noteData: NoteData) {
-        noteUseCase.update(noteData).onEach {
-            it.onSuccess {
-                successLiveData.value = "Update"
-                loadNotes()
-            }
-        }
-    }
+
 }

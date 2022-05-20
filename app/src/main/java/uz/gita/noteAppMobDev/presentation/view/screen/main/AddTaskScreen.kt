@@ -2,6 +2,7 @@ package uz.gita.noteAppMobDev.presentation.view.screen.main
 
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -20,6 +21,7 @@ class AddTaskScreen : Fragment(R.layout.screen_addtask) {
     private val viewModel: AddTaskViewModel by viewModels<AddTaskViewModelImpl>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         addTask.setOnClickListener {
             viewModel.addNewTask(
                 TaskData(

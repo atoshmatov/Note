@@ -23,6 +23,7 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/more"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
@@ -49,122 +50,37 @@
         app:layout_constraintEnd_toStartOf="@+id/more"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- <jp.wasabeef.richeditor.RichEditor
-         android:id="@+id/editorNote"
-         android:layout_width="match_parent"
-         android:layout_height="100dp"
-         android:layout_margin="10dp"
-         android:layout_marginTop="8dp"
-         android:autofillHints="description"
-         android:background="@drawable/search_style"
-         android:focusable="true"
-         android:fontFamily="@font/advent_pro"
-         android:minHeight="100dp"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintHorizontal_bias="0.5"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toBottomOf="@+id/titleAdd"
-         app:layout_constraintVertical_bias="0.1" />-->
-
-    <!--
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:visibility="gone"
-            android:id="@+id/liner"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:layout_gravity="bottom"
-            android:gravity="center|bottom"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editorNote"
-            app:layout_constraintVertical_bias="1">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/bold"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_style"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_type_bold" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/italic"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_style"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_type_italic" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/strike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_style"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_type_strikethrough" />
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/colorAdd"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:background="@drawable/search_style"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:focusable="true"
-                android:padding="8dp"
-                android:src="@drawable/ic_palette" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-    -->
-
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/titleAdd"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="40dp"
         android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/search_style"
         android:elevation="6dp"
         android:fontFamily="@font/advent_pro"
         android:hint="@string/tittle"
         android:inputType="text"
         android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/editorNote"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editorNote"
         app:layout_constraintTop_toBottomOf="@+id/addNote"
-        app:layout_constraintVertical_bias="0.05"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <org.wordpress.aztec.AztecText
-        android:layout_marginTop="20dp"
         android:id="@+id/editorNote"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginHorizontal="10dp"
-        android:imeOptions="flagNoExtractUi"
-        android:inputType="textNoSuggestions|textMultiLine"
-        android:padding="10dp"
-        android:maxHeight="1dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/advent_pro"
+        android:paddingHorizontal="10dp"
         android:scrollbars="vertical"
         app:codeTextColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/liner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleAdd"
@@ -173,11 +89,11 @@
     <org.wordpress.aztec.toolbar.AztecToolbar
         android:id="@+id/liner"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="1"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.card.MaterialCardView

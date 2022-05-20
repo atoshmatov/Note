@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,6 +16,7 @@ import uz.gita.noteAppMobDev.data.sourse.local.entity.toTaskData
 import uz.gita.noteAppMobDev.databinding.PagerTaskBinding
 import uz.gita.noteAppMobDev.presentation.view.adapter.main.AddTaskAdapter
 import uz.gita.noteAppMobDev.presentation.view.dialog.TaskDialog
+import uz.gita.noteAppMobDev.presentation.view.screen.main.MainScreenDirections
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.TaskViewModel
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.impl.TaskViewModelImpl
 
@@ -42,7 +44,7 @@ class TaskPager : Fragment(R.layout.pager_task) {
                 viewModel.deleteTask(it)
             }
             dialog.setClickEditButtonListener {
-                //TODO
+                findNavController().navigate(MainScreenDirections.actionMainScreenToUpdateTaskScreen(it))
             }
             dialog.show(childFragmentManager, "Note")
         }

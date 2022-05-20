@@ -18,7 +18,7 @@ class TaskRepositoryImpl
     }
 
     override suspend fun update(taskEntity: TaskEntity) {
-        taskDao.upData(taskEntity)
+        taskDao.upDate(taskEntity)
     }
 
     override suspend fun checkAdd(id: Long) {

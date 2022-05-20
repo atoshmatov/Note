@@ -12,5 +12,6 @@
     <string name="tasks">tasks</string>
     <string name="notes">notes</string>
     <string name="edit">Edit</string>
+    <string name="about">Notes is note app for Android that helps you keep track of your thoughts and ideas. It\'s a lightweight app with all the necessary elements. In notes, you can add a title, create a bullet list and checklist, adjust font \n Created by Alimardon\n GITA Dastruchilar Academiyasi</string>
     <string name="delete">Delete</string>
 </resources>

@@ -13,6 +13,5 @@ interface NoteViewModel {
 
     fun loadNotes()
     fun deleteNote(noteData: NoteData)
-    fun updateNote(noteData: NoteData)
 
 }

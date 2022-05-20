@@ -1,5 +1,6 @@
 package uz.gita.noteAppMobDev.presentation.viewmodel.main.impl
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import uz.gita.noteAppMobDev.domain.usecase.MainUseCase
@@ -11,4 +12,9 @@ class MainViewModelImpl
 @Inject constructor(
     private val useCase: MainUseCase
 ) : ViewModel(), MainViewModel {
+    override val openAboutLiveData = MutableLiveData<Unit>()
+
+    override fun openAbout() {
+        openAboutLiveData.value = Unit
+    }
 }

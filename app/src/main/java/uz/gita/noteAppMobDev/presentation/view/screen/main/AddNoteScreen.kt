@@ -1,8 +1,9 @@
 package uz.gita.noteAppMobDev.presentation.view.screen.main
 
-import android.graphics.Color
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -24,7 +25,9 @@ class AddNoteScreen : Fragment(uz.gita.noteAppMobDev.R.layout.screen_addnote) {
     private val binding by viewBinding(ScreenAddnoteBinding::bind)
     private val viewModel: AddNoteViewModel by viewModels<AddNoteViewModelImpl>()
 
+    @SuppressLint("ResourceAsColor")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         val editor = editorNote
         Aztec.with(editorNote, liner, object : IAztecToolbarClickListener {
             override fun onToolbarCollapseButtonClicked() {}
@@ -48,7 +51,7 @@ class AddNoteScreen : Fragment(uz.gita.noteAppMobDev.R.layout.screen_addnote) {
         })
         editor.setBackgroundResource(R.drawable.search_style)
         editor.gravity = View.TEXT_ALIGNMENT_TEXT_START
-        editor.setTextColor(Color.BLACK)
+        editor.setTextColor(R.color.black)
         addNote.setOnClickListener {
             viewModel.addNewNote(
                 NoteData(

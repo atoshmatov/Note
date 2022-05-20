@@ -7,5 +7,4 @@ import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 interface NoteUseCase {
     fun getNotes(): Flow<Result<List<NoteEntity>>>
     fun delete(noteData: NoteData): Flow<Result<Unit>>
-    fun update(noteData: NoteData): Flow<Result<Unit>>
 }

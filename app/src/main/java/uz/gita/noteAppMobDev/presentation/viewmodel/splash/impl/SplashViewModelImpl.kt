@@ -16,7 +16,7 @@ class SplashViewModelImpl @Inject constructor() : ViewModel(), SplashViewModel {
 
     init {
         viewModelScope.launch(Dispatchers.IO) {
-            delay(1000)
+            delay(1600)
             openMainScreenLiveData.postValue(Unit)
         }
     }

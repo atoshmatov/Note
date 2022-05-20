@@ -1,7 +1,7 @@
 package uz.gita.noteAppMobDev.presentation.view.adapter.main
 
 import android.annotation.SuppressLint
-import android.text.Html
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -30,7 +30,7 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
         private val simpleDateFormat: SimpleDateFormat = SimpleDateFormat("  HH : mm")
 
         init {
-            itemView.setOnClickListener {
+            binding.clicker.setOnClickListener {
                 onItemClickListener!!.invoke(getItem(absoluteAdapterPosition))
             }
         }
@@ -40,7 +40,7 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
                 val dateTime = simpleDateFormat.format(time)
                 noteText.text = title
                 noteTime.text = dateTime
-                descriptionNote.text = Html.fromHtml(description)
+                descriptionNote.fromHtml(description)
             }
         }
 

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_nav.xml"
-    app:startDestination="@id/mainScreen">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/splashScreen"
@@ -57,5 +57,9 @@
         android:id="@+id/updateTaskScreen"
         android:name="uz.gita.noteAppMobDev.presentation.view.screen.main.UpdateTaskScreen"
         android:label="screen_updatetasks"
-        tools:layout="@layout/screen_updatetasks" />
+        tools:layout="@layout/screen_updatetasks" >
+        <argument
+            android:name="task"
+            app:argType="uz.gita.noteAppMobDev.data.common.models.TaskData" />
+    </fragment>
 </navigation>

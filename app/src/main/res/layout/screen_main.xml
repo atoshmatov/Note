@@ -33,24 +33,25 @@
         app:tabIndicatorHeight="0dp"
         tools:ignore="SpeakableTextPresentCheck" />
 
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|center"
         android:layout_margin="8dp"
+        android:layout_marginEnd="8dp"
         android:background="?selectableItemBackgroundBorderless"
-        android:clickable="true"
-        android:focusable="true"
         android:padding="8dp"
-        android:src="@drawable/ic_setting"
+        android:src="@drawable/ic_info"
         app:layout_constraintBottom_toBottomOf="@+id/tabLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tabLayout"
+        app:layout_constraintVertical_bias="0.437"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck,ImageContrastCheck" />
 
-
     <LinearLayout
+        android:visibility="invisible"
         android:id="@+id/noteLiner"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -79,20 +80,20 @@
     </LinearLayout>
 
     <androidx.viewpager2.widget.ViewPager2
-        android:focusable="true"
         android:id="@+id/viewPagerMain"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteLiner" />
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="20dp"
         android:focusable="true"
+        app:layout_constraintHorizontal_bias="1"
         android:backgroundTint="@color/yellow"
         android:contentDescription="@string/todo"
         android:src="@drawable/ic_add"

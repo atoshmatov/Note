@@ -6,6 +6,8 @@
     android:layout_height="wrap_content"
     android:padding="6dp"
     android:elevation="2dp"
+    android:clickable="true"
+    android:focusable="true"
     android:background="@drawable/item_style"
     android:layout_margin="8dp">
 
@@ -24,16 +26,18 @@
         app:layout_constraintVertical_bias="0"
         tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <org.wordpress.aztec.AztecText
         android:id="@+id/descriptionNote"
         android:layout_width="match_parent"
-        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/advent_pro"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/noteTime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/noteText"
         app:layout_constraintTop_toBottomOf="@+id/noteText"
-        tools:text="fjdkjbgfdnbhlfdbkvjhbfdjlbvh,dvhf,d"/>
+        app:layout_constraintVertical_bias="0.1" />
+
 
     <TextView
         android:id="@+id/noteTime"
@@ -49,5 +53,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/descriptionNote"
         tools:text="    12:20" />
+
+    <View
+        android:id="@+id/clicker"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/noteText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

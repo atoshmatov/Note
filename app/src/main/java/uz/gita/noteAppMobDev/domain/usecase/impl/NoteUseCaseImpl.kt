@@ -25,7 +25,5 @@ class NoteUseCaseImpl
         emit(Result.success(noteRepository.deleteNote(noteData.toEntity())))
     }.flowOn(Dispatchers.IO)
 
-    override fun update(noteData: NoteData) = flow<Result<Unit>> {
-        emit(Result.success(noteRepository.updateNote(noteData.toEntity())))
-    }.flowOn(Dispatchers.IO)
+
 }

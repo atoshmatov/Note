@@ -25,4 +25,11 @@ interface UseCaseModule {
 
     @Binds
     fun bindMainUseCase(impl: MainUseCaseImpl): MainUseCase
+
+    @Binds
+    fun bindUpdateUseCase(impl: UpdateNoteUseCaseImpl): UpdateNoteUseCase
+
+    @Binds
+    fun bindUpdateTaskUseCase(impl: UpdateTaskUseCaseImpl): UpdateTaskUseCase
+
 }
