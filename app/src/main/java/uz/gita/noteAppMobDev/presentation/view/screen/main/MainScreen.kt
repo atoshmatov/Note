@@ -1,5 +1,6 @@
 package uz.gita.noteAppMobDev.presentation.view.screen.main
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -23,6 +24,7 @@ class MainScreen : Fragment(R.layout.screen_main) {
     private val binding by viewBinding(ScreenMainBinding::bind)
     private val viewModel: MainViewModel by viewModels<MainViewModelImpl>()
 
+    @SuppressLint("FragmentLiveDataObserve")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
         requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
@@ -47,7 +49,7 @@ class MainScreen : Fragment(R.layout.screen_main) {
         TabLayoutMediator(tabLayout, viewPagerMain) { tab, position ->
             when (position) {
                 0 -> {
-                    tab.setIcon(R.drawable.ic_sticky)
+                    tab.setIcon(R.drawable.ic_note1)
                 }
                 else -> {
                     tab.setIcon(R.drawable.ic_check)
@@ -55,7 +57,7 @@ class MainScreen : Fragment(R.layout.screen_main) {
             }
         }.attach()
 
-        viewModel.openAboutLiveData.observe(viewLifecycleOwner, openAboutObserver)
+        viewModel.openAboutLiveData.observe(this@MainScreen, openAboutObserver)
         setting.setOnClickListener {
             viewModel.openAbout()
         }

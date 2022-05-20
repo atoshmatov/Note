@@ -17,7 +17,8 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class LocalModule {
     @[Provides Singleton]
-    fun getAppDatabase(@ApplicationContext context: Context): AppDatabase = Room.databaseBuilder(context, AppDatabase::class.java, "MyNote").build()
+    fun getAppDatabase(@ApplicationContext context: Context): AppDatabase =
+        Room.databaseBuilder(context, AppDatabase::class.java, "MyNote").build()
 
     @[Provides Singleton]
     fun getNoteDao(database: AppDatabase) : NoteDao = database.getNoteDao()

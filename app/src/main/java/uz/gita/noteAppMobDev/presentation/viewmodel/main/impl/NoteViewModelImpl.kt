@@ -19,27 +19,29 @@ class NoteViewModelImpl
 ) : NoteViewModel,
     ViewModel() {
     override val notesLiveData = MutableLiveData<List<NoteEntity>>()
-    override val errorLiveData = MutableLiveData<String>()
-    override val successLiveData = MutableLiveData<String>()
+    override val pleaseHolderLiveData = MutableLiveData<Boolean>()
 
     override fun loadNotes() {
         noteUseCase.getNotes().onEach {
             it.onSuccess { note ->
                 notesLiveData.value = note
-            }.onFailure {
-                errorLiveData.value = "Error"
+                pleaseHolderLiveData.value = note.isEmpty()
             }
         }.launchIn(viewModelScope)
     }
 
     override fun deleteNote(noteData: NoteData) {
+        /* noteUseCase.delete(noteData)
+             .flowOn(Dispatchers.IO)
+             .launchIn(viewModelScope)*/
+
+        /*viewModelScope.launch(Dispatchers.IO) {
+            noteUseCase.delete(noteData).collect()
+        }*/
         noteUseCase.delete(noteData).onEach {
             it.onSuccess {
-                successLiveData.value = "Delete"
                 loadNotes()
             }
         }.launchIn(viewModelScope)
     }
-
-
 }

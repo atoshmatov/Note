@@ -33,7 +33,8 @@ class UpdateTaskScreen : Fragment(R.layout.screen_updatetasks) {
                 TaskData(
                     args.task.id,
                     title = taskUpdateTittle.text.toString(),
-                    time = System.currentTimeMillis()
+                    time = System.currentTimeMillis(),
+                    selected = args.task.selected
                 )
             )
             viewModel.back()

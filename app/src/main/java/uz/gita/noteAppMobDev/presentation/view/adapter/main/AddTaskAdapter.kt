@@ -44,12 +44,12 @@ class AddTaskAdapter : ListAdapter<TaskEntity, AddTaskAdapter.ViewHolder>(TaskDa
             getItem(absoluteAdapterPosition).apply {
                 val dateTime = simpleDateFormat.format(time)
                 if (selected == 0) {
-                    taskText.text = title
+                    taskText.text = title.trim()
                     taskCheck.isChecked = false
                     taskTime.text = dateTime
                     taskText.setBackgroundResource(0)
                 } else {
-                    taskText.text = title
+                    taskText.text = title.trim()
                     taskTime.text = dateTime
                     taskText.setBackgroundResource(R.drawable.strike)
                     taskCheck.isChecked = true

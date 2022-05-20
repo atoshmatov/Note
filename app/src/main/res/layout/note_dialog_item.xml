@@ -17,6 +17,9 @@
         android:orientation="vertical">
 
         <TextView
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -31,6 +34,9 @@
             app:drawableTint="#6BB2EA" />
 
         <TextView
+            android:background="?selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             android:id="@+id/delete"
             android:layout_width="match_parent"
             android:layout_height="50dp"

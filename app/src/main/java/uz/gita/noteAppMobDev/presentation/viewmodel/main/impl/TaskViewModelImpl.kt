@@ -18,15 +18,14 @@ class TaskViewModelImpl
     private val taskUseCase: TaskUseCase
 ) : ViewModel(), TaskViewModel {
     override val tasksLiveData = MutableLiveData<List<TaskEntity>>()
-    override val errorLiveData = MutableLiveData<String>()
     override val successLiveData = MutableLiveData<String>()
+    override val pleaseHolderLiveData = MutableLiveData<Boolean>()
 
     override fun loadTask() {
         taskUseCase.getTasks().onEach {
             it.onSuccess { task ->
                 tasksLiveData.value = task
-            }.onFailure {
-                errorLiveData.value = "Error"
+                pleaseHolderLiveData.value = task.isEmpty()
             }
         }.launchIn(viewModelScope)
     }

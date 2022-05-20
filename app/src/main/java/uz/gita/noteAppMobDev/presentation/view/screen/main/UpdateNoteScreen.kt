@@ -62,8 +62,8 @@ class UpdateNoteScreen:Fragment(R.layout.screen_updatenotes) {
             viewModel.updateNote(
                 NoteData(
                     args.note.id,
-                    title = tittleUpdate.text.toString(),
-                    description = editorNoteUpdate.toPlainHtml(),
+                    title = tittleUpdate.text.toString().trim(),
+                    description = editorNoteUpdate.toPlainHtml().trim(),
                     time = System.currentTimeMillis(),
                 )
             )

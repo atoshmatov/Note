@@ -3,6 +3,7 @@ package uz.gita.noteAppMobDev.presentation.view.screen.splash
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -27,6 +28,7 @@ class SplashScreen:Fragment(R.layout.screen_splash) {
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) = with(binding) {
+        requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         image.animate().setDuration(200).scaleX(1f).scaleY(1f).setDuration(700).withEndAction {
             image.animate().scaleX(0f).scaleY(0f).duration = 500
             image.animate()

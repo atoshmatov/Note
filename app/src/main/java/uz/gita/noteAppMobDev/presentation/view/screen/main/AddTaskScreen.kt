@@ -25,7 +25,7 @@ class AddTaskScreen : Fragment(R.layout.screen_addtask) {
         addTask.setOnClickListener {
             viewModel.addNewTask(
                 TaskData(
-                    title = taskAddTittle.text.toString(),
+                    title = taskAddTittle.text.toString().trim(),
                     time = System.currentTimeMillis()
                 )
             )

@@ -8,8 +8,9 @@ import uz.gita.noteAppMobDev.data.sourse.local.entity.TaskEntity
 interface TaskViewModel{
 
     val tasksLiveData: LiveData<List<TaskEntity>>
-    val errorLiveData: LiveData<String>
     val successLiveData:LiveData<String>
+    val pleaseHolderLiveData: LiveData<Boolean>
+
 
     fun loadTask()
     fun addChecked(id:Long)

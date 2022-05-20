@@ -8,8 +8,7 @@ import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 interface NoteViewModel {
 
     val notesLiveData: LiveData<List<NoteEntity>>
-    val errorLiveData: LiveData<String>
-    val successLiveData: LiveData<String>
+    val pleaseHolderLiveData: LiveData<Boolean>
 
     fun loadNotes()
     fun deleteNote(noteData: NoteData)

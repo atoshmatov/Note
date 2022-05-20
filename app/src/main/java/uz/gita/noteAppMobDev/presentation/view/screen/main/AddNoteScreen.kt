@@ -52,11 +52,12 @@ class AddNoteScreen : Fragment(uz.gita.noteAppMobDev.R.layout.screen_addnote) {
         editor.setBackgroundResource(R.drawable.search_style)
         editor.gravity = View.TEXT_ALIGNMENT_TEXT_START
         editor.setTextColor(R.color.black)
+        editor.highlightColor = R.color.black
         addNote.setOnClickListener {
             viewModel.addNewNote(
                 NoteData(
-                    title = titleAdd.text.toString(),
-                    description = editorNote.toPlainHtml(),
+                    title = titleAdd.text.toString().trim(),
+                    description = editorNote.toPlainHtml().trim(),
                     time = System.currentTimeMillis(),
                 )
             )

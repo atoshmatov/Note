@@ -1,7 +1,6 @@
 package uz.gita.noteAppMobDev.presentation.view.adapter.main
 
 import android.annotation.SuppressLint
-import android.text.Editable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -35,12 +34,14 @@ class AddNoteAdapter : ListAdapter<NoteEntity, AddNoteAdapter.ViewHolder>(NoteDa
             }
         }
 
+        @SuppressLint("ResourceAsColor")
         fun bind(): NoteEntity = with(binding) {
             getItem(absoluteAdapterPosition).apply {
                 val dateTime = simpleDateFormat.format(time)
-                noteText.text = title
+                noteText.text = title.trim()
                 noteTime.text = dateTime
-                descriptionNote.fromHtml(description)
+                descriptionNote.fromHtml(description.trim())
+                descriptionNote.setTextColor(R.color.black)
             }
         }
 

@@ -1,9 +1,7 @@
 package uz.gita.noteAppMobDev.presentation.view.screen.main.pager
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -12,7 +10,6 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import uz.gita.noteAppMobDev.R
-import uz.gita.noteAppMobDev.data.common.models.NoteData
 import uz.gita.noteAppMobDev.data.sourse.local.entity.NoteEntity
 import uz.gita.noteAppMobDev.data.sourse.local.entity.toData
 import uz.gita.noteAppMobDev.databinding.PagerNotesBinding
@@ -39,23 +36,26 @@ class NotesPager : Fragment(R.layout.pager_notes) {
                 viewModel.deleteNote(it)
             }
             dialog.setClickEditButtonListener {
-                findNavController().navigate(MainScreenDirections.actionMainScreenToUpdateNoteScreen(it))
+                findNavController().navigate(
+                    MainScreenDirections.actionMainScreenToUpdateNoteScreen(
+                        it
+                    )
+                )
             }
             dialog.show(childFragmentManager, "Note")
         }
         viewModel.notesLiveData.observe(viewLifecycleOwner, notesObserver)
-        viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
         viewModel.loadNotes()
+        viewModel.pleaseHolderLiveData.observe(viewLifecycleOwner, pleaseHolderObserver)
     }
 
+
+    private val pleaseHolderObserver = Observer<Boolean> {
+        if (it) {
+            binding.imageEmpty.visibility = View.VISIBLE
+        } else binding.imageEmpty.visibility = View.GONE
+    }
     private val notesObserver = Observer<List<NoteEntity>> {
         noteAdapter.submitList(it)
     }
-    private val errorObserver = Observer<String> {
-        Toast.makeText(requireContext(), "Error list", Toast.LENGTH_SHORT).show()
-    }
-
-    /*fun setSendNoteDataUpdate(block: (NoteData) -> Unit) {
-        sendNoteDataUpdate = block
-    }*/
 }

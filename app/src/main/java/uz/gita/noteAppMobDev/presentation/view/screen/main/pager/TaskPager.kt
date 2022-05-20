@@ -2,7 +2,6 @@ package uz.gita.noteAppMobDev.presentation.view.screen.main.pager
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -49,15 +48,17 @@ class TaskPager : Fragment(R.layout.pager_task) {
             dialog.show(childFragmentManager, "Note")
         }
         viewModel.tasksLiveData.observe(viewLifecycleOwner, tasksObserver)
-        viewModel.errorLiveData.observe(viewLifecycleOwner, errorObserver)
         viewModel.loadTask()
+        viewModel.pleaseHolderLiveData.observe(viewLifecycleOwner, pleaseHolderObserver)
     }
 
     private val tasksObserver = Observer<List<TaskEntity>> {
         taskAdapter.submitList(it)
     }
 
-    private val errorObserver = Observer<String> {
-        Toast.makeText(requireContext(), "Error list", Toast.LENGTH_SHORT).show()
+    private val pleaseHolderObserver = Observer<Boolean> {
+        if (it) {
+            binding.imageEmpty.visibility = View.VISIBLE
+        } else binding.imageEmpty.visibility = View.GONE
     }
 }

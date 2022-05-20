@@ -7,6 +7,10 @@
     tools:context=".presentation.view.screen.main.AddNoteScreen">
 
     <TextView
+        android:shadowColor="@color/black"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="2"
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,9 +57,9 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/titleAdd"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="56dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/search_style"
         android:elevation="6dp"
         android:fontFamily="@font/advent_pro"
@@ -73,9 +77,9 @@
     <org.wordpress.aztec.AztecText
         android:id="@+id/editorNote"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginVertical="10dp"
         android:fontFamily="@font/advent_pro"
         android:paddingHorizontal="10dp"
         android:scrollbars="vertical"
@@ -83,18 +87,17 @@
         app:layout_constraintBottom_toTopOf="@+id/liner"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleAdd"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/titleAdd" />
 
     <org.wordpress.aztec.toolbar.AztecToolbar
         android:id="@+id/liner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        app:layout_constraintTop_toBottomOf="@id/editorNote"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+<!--
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/progressView"
@@ -127,5 +130,6 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

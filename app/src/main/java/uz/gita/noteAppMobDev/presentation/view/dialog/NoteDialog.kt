@@ -35,7 +35,6 @@ class NoteDialog(private val noteData: NoteData) :
             clickEditButtonListener?.invoke(noteData)
             dismiss()
         }
-        isCancelable = false
     }
 
     fun setClickEditButtonListener(block: (NoteData) -> Unit) {

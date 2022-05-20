@@ -36,7 +36,6 @@ class TaskDialog(private val taskData: TaskData) :
             clickEditButtonListener?.invoke(taskData)
             dismiss()
         }
-        isCancelable = false
     }
 
     fun setClickEditButtonListener(block: (TaskData) -> Unit) {

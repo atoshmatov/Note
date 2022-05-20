@@ -5,11 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.launch
 import uz.gita.noteAppMobDev.data.common.models.NoteData
 import uz.gita.noteAppMobDev.domain.usecase.AddNoteUseCase
 import uz.gita.noteAppMobDev.presentation.viewmodel.main.AddNoteViewModel
@@ -20,10 +17,6 @@ class AddNoteViewModelImpl
 @Inject constructor(
     private val addNoteUseCase: AddNoteUseCase
 ) : AddNoteViewModel, ViewModel() {
-    override val errorTitleLiveData = MutableLiveData<Int>()
-    override val errorDescriptionLiveData = MutableLiveData<Int>()
-    override val loadingLiveData = MutableLiveData<Boolean>()
-    override val successLiveData = MutableLiveData<Unit>()
     override val backLiveData = MutableLiveData<Unit>()
 
 
@@ -34,9 +27,6 @@ class AddNoteViewModelImpl
         addNoteUseCase.addNote(noteData)
             .flowOn(Dispatchers.IO)
             .launchIn(viewModelScope)
-
-        loadingLiveData.value = true
-        return
     }
 
     override fun back() {
